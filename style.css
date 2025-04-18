@@ -5,21 +5,7 @@
 body{
     background-color: #f8f2ed
 }
-/* เมื่อหน้าจอมีความกว้างไม่เกิน 768px ให้เปลี่ยนสีพื้นหลังและขนาดตัวอักษร */
-@media (max-width: 768px) {
-  .responsive-box {
-    background-color: #2196F3; /* สีฟ้า */
-    font-size: 18px;
-  }
-}
 
-/* เมื่อหน้าจอมีความกว้างไม่เกิน 480px (เช่นมือถือ) ให้เปลี่ยนสีและขนาดอีกครั้ง */
-@media (max-width: 480px) {
-  .responsive-box {
-    background-color: #f44336; /* สีแดง */
-    font-size: 16px;
-  }
-}
 .fa {
     padding: 20px;
     font-size: 15px;
