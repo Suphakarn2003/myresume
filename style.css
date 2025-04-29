@@ -5,6 +5,52 @@
 body{
     background-color: #f8f2ed
 }
+/* For large desktops (1200px and above) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .it-me {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+  }
+
+  .skills-box {
+    max-width: 80%;
+    padding: 40px;
+  }
+}
+
+/* For small desktops (992px to 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .it-me {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+
+  .skills-box {
+    max-width: 90%;
+    padding: 30px;
+  }
+}
+
+/* For small phones (320px and below) */
+@media (max-width: 320px) {
+  .word-one, .word-two {
+    font-size: 20px;
+  }
+
+  .menu-toggle .bar {
+    width: 20px;
+    height: 2px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
 
 .fa {
     padding: 20px;
@@ -197,72 +243,105 @@ body{
   background-color: #b71e2c !important; /* สีที่เปลี่ยนเมื่อเลือก */
 }
 .color-bar {
-    padding-top: 30px;
-    display: flex;
-    width: 850px;
-    height: 80px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  
-  .bar {
-    height: 100%;
-  }
-  .bar-name{
-    padding: 15px;
-  }
-  .bar-name h1{
-    color: white;
-    font-size: 50px;
-  }
-  
-  .green {
-    background-color: #b71e2c;
-    flex: 1; 
-  } 
-  .orange {
-    background-color: #600109;
-    flex: 8; /* 70% ของความยาวทั้งหมด */
-  }
-.it-me{
-  /*border: 1px solid red;*/ 
-    padding: 1rem;
-    justify-items: center;
-    display: grid;
-    grid-template-columns: repeat(2 , 1fr);
+  padding-top: 30px;
+  display: flex;
+  width: 100%; /* ปรับเป็น % เพื่อให้ยืดหยุ่น */
+  max-width: 850px; /* จำกัดความกว้างไม่ให้เกิน 850px */
+  height: 80px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
 }
-.it-title-1{
+
+.bar {
+  height: 100%;
+}
+
+.bar-name {
+  padding: 15px;
+}
+
+.bar-name h1 {
+  color: white;
+  font-size: 2.5rem; /* ใช้หน่วย rem เพื่อรองรับทุกขนาดจอ */
+}
+
+/* สีของแถบ */
+.green {
+  background-color: #b71e2c;
+  flex: 1;
+}
+
+.orange {
+  background-color: #600109;
+  flex: 8;
+}
+  /* ----------- Responsive: Tablets (max-width: 991px) ----------- */
+@media (max-width: 991px) {
+  .color-bar {
+    height: 70px; /* ลดความสูงลงนิดหน่อย */
+  }
+
+  .bar-name h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ----------- Responsive: Small Phones (max-width: 480px) ----------- */
+@media (max-width: 480px) {
+  .color-bar {
+    height: 60px; /* เตี้ยลงเพื่อประหยัดพื้นที่ */
+    padding-top: 20px;
+  }
+
+  .bar-name {
+    padding: 10px;
+  }
+
+  .bar-name h1 {
+    font-size: 1.5rem; /* ฟอนต์เล็กลงอีก */
+  }
+}
+.it-me {
+  padding: 1rem;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+  gap: 20px;
+}
+
+.it-title-1, .it-title-2 {
   width: 800px;
   height: 550px;
   border-radius: 10%;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.it-title-1 {
   background: url(download10.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 5px 10px 8px #888888;
 }
-.it-title-2{
-    /*border: 1px solid red;*/ 
-    background-color: #600109;
-    width: 800px;
-    height: 550px;
-    border-radius: 10%;
-    justify-items: center;
-    box-shadow: 5px 10px 8px #888888;
+
+.it-title-2 {
+  background-color: #600109;
+  justify-items: center;
 }
-.it-title-2 h1{
+
+.it-title-2 h1 {
   color: white;
   text-align: center;
   font-size: 40px;
   padding-top: 20px;
 }
-.it-title-2 h3{
+
+.it-title-2 h3 {
   padding: 10px;
   color: black;
-  font-size: 25px;
+  font-size: 1.5rem; /* Use relative units */
   background-color: #fff;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 #panel{
   padding: 3px;
@@ -272,34 +351,125 @@ body{
   background-color: white;
   border: solid 1px #c3c3c3;
 }
+/* Responsive styles for large desktops (1200px and above) */
+@media (min-width: 1200px) {
+  .it-me {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for large screens */
+    gap: 20px;
+  }
+
+  .it-title-1, .it-title-2 {
+    max-width: 800px; /* Larger width for large screens */
+  }
+
+  .it-title-2 h1 {
+    font-size: 2.5rem; /* Larger font size */
+  }
+
+  .it-title-2 h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive styles for tablets (768px to 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .it-me {
+    grid-template-columns: 1fr; /* Stack items vertically */
+    gap: 15px;
+  }
+
+  .it-title-1, .it-title-2 {
+    max-width: 600px; /* Reduce the maximum width */
+  }
+
+  .it-title-2 h1 {
+    font-size: 1.8rem; /* Adjust font size */
+  }
+
+  .it-title-2 h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive styles for small phones (480px to 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .it-me {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 10px;
+  }
+
+  .it-title-1, .it-title-2 {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .it-title-2 h1 {
+    font-size: 1.6rem; /* Smaller font size */
+  }
+
+  .it-title-2 h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive styles for extra small phones (480px and below) */
+@media (max-width: 480px) {
+  .it-me {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 10px;
+  }
+
+  .it-title-1, .it-title-2 {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .it-title-2 h1 {
+    font-size: 1.5rem; /* Smaller font size */
+  }
+
+  .it-title-2 h3 {
+    font-size: 1rem;
+  }
+}
 
 #panel {
-  padding: 30px;
-  display: none;
+  padding: 20px;
+  border-radius: 10%;
+  width: 100%; /* Full width */
+  max-width: 600px; /* Limit the maximum width */
+  height: auto; /* Adjust height automatically */
+  background-color: white;
+  border: solid 1px #c3c3c3;
 }
-.About-me{
+
+
+/* Additional styles for About-me section */
+.About-me {
   display: flex;
-  font-size: 20px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  font-size: 1rem; /* Use relative units */
 }
-.name-and-lastname{
+
+.name-and-lastname {
   color: #b71e2c;
-  text-indent: 1ex; 
+  text-indent: 1ex;
 }
-p{
+
+p {
   padding-top: 10px;
-  text-indent: 4em; /* เว้นบรรทัดแรก 2 อักษร (em) */
+  text-indent: 2em; /* Adjust indentation for smaller screens */
 }
+
 .info-container {
   display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  max-width: 800px;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
+  max-width: 100%; /* Full width */
   margin: auto;
 }
 
 .info-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* แบ่งสองฝั่งเท่ากัน */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
   gap: 20px;
   max-width: 700px;
   margin: auto;
@@ -307,7 +477,7 @@ p{
 }
 
 ul {
-  list-style-position: inside; /* ให้จุดอยู่ในกรอบเดียวกับข้อความ */
+  list-style-position: inside; /* Keep bullets inside the text box */
   padding: 0;
   margin: 0;
 }
@@ -315,29 +485,35 @@ ul {
 li {
   margin-bottom: 10px;
 }
+
 li::marker {
-  color: red; /* เปลี่ยนสีจุด bullet */
-  font-size: 20px; /* ปรับขนาด bullet ได้ด้วย */
+  color: red; /* Change bullet color */
+  font-size: 20px; /* Adjust bullet size */
 }
 
-.bar-school-item{
+/* Default styles */
+.bar-school-item {
   display: flex;
   justify-content: center;
 }
+
 .skills-head1 {
   display: flex;
 }
-h1{
+
+h1 {
   color: black;
   align-items: center;
   font-size: 100px;
 }
-.word-skills{
+
+.word-skills {
   color: #b71e2c;
-  text-indent: 10px; 
+  text-indent: 10px;
   align-items: center;
   font-size: 100px;
 }
+
 .tabs {
   justify-content: center;
   display: flex;
@@ -373,8 +549,7 @@ h1{
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid white;;
-  
+  border-bottom: 1px solid white;
 }
 
 .badge {
@@ -420,9 +595,110 @@ h1{
 .details:hover {
   text-decoration: underline;
 }
-.skills-box, 
+
+.skills-box,
 .skills-box .skill span {
   color: white;
+}
+
+/* Responsive styles for large desktops (1200px and above) */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 80px;
+  }
+
+  .word-skills {
+    font-size: 80px;
+  }
+
+  .skills-box {
+    max-width: 1000px;
+    padding: 40px;
+  }
+}
+
+/* Responsive styles for tablets (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  .word-skills {
+    font-size: 60px;
+  }
+
+  .tabs {
+    gap: 20px;
+    margin: 20px;
+  }
+
+  .skills-box {
+    max-width: 800px;
+    padding: 20px;
+  }
+
+  .skill {
+    padding: 15px 0;
+  }
+}
+
+/* Responsive styles for small phones (480px to 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .word-skills {
+    font-size: 40px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .skills-box {
+    max-width: 600px;
+    padding: 15px;
+  }
+
+  .skill {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Responsive styles for extra small phones (480px and below) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .word-skills {
+    font-size: 30px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skills-box {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .skill {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
 }
 
 .green {
@@ -554,6 +830,78 @@ h1{
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+/* Responsive styles for tablets (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .bar-contact {
+    grid-template-columns: 1fr; /* Single column for tablets */
+    gap: 20px;
+  }
+
+  .contact-item-1, .contact-item-2 {
+    max-width: 600px; /* Reduce the maximum width */
+    padding: 20px 30px;
+  }
+
+  .bar-project {
+    grid-template-columns: 1fr; /* Single column for projects */
+  }
+
+  .wed-bar img {
+    max-width: 100%; /* Full width for images */
+  }
+}
+
+/* Responsive styles for small phones (480px to 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .bar-contact {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 15px;
+  }
+
+  .contact-item-1, .contact-item-2 {
+    max-width: 100%; /* Full width */
+    padding: 15px 20px;
+  }
+
+  .bar-project {
+    grid-template-columns: 1fr; /* Single column for projects */
+  }
+
+  .wed-bar img {
+    max-width: 100%; /* Full width for images */
+  }
+}
+
+/* Responsive styles for extra small phones (480px and below) */
+@media (max-width: 480px) {
+  .bar-contact {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 10px;
+  }
+
+  .contact-item-1, .contact-item-2 {
+    max-width: 100%; /* Full width */
+    padding: 10px 15px;
+    font-size: 16px; /* Smaller font size */
+  }
+
+  .bar-project {
+    grid-template-columns: 1fr; /* Single column for projects */
+  }
+
+  .wed-bar img {
+    max-width: 100%; /* Full width for images */
+  }
+
+  .filter-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 10px 20px;
+  }
 }
 
 .filter-btn.active {
